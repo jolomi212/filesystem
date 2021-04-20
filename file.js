@@ -1,6 +1,9 @@
 var fs = require('fs');
 const fetch = require('node-fetch');
-
+fs.access('result/', (err) => {
+    if (err) throw err
+    console.log('The folder exists');
+})
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
     .then(json => {
